@@ -2,6 +2,13 @@ StartState = Class{__includes = BaseState}
 
 local selectedOption = 1
 
+function StartState:update(dt)
+
+  if love.keyboard.wasPressed('down') or love.keyboard.wasPressed('up') then
+    selectedOption = selectedOption == 1 and 2 or 1
+  end
+
+end
 
 function StartState:render()
   love.graphics.setFont(gFonts['large'])
