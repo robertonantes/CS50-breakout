@@ -12,6 +12,7 @@ function love.load()
   }
 
   gTextures = {
+    ['atlas'] = love.graphics.newImage('graphics/blocks.png'),
     ['background'] = love.graphics.newImage('graphics/background.png')
   }
 
@@ -24,6 +25,8 @@ function love.load()
   gStateMachine = StateMachine({
     ['start'] = function() return StartState() end
   })
+
+  gFrames = GenerateQuadsPaddles(gTextures['atlas'])
 
   gStateMachine:change('start')
   love.keyboard.keysPressed = {}
