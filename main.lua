@@ -23,10 +23,13 @@ function love.load()
   })
 
   gStateMachine = StateMachine({
-    ['start'] = function() return StartState() end
+    ['start'] = function() return StartState() end,
+    ['play'] = function() return PlayState() end
   })
 
-  gFrames = GenerateQuadsPaddles(gTextures['atlas'])
+  gFrames = {
+    ['paddles'] = GenerateQuadsPaddles(gTextures['atlas'])
+  }
 
   gStateMachine:change('start')
   love.keyboard.keysPressed = {}

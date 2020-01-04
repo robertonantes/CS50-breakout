@@ -8,6 +8,10 @@ function StartState:update(dt)
     selectedOption = selectedOption == 1 and 2 or 1
   end
 
+  if love.keyboard.wasPressed('return') then
+    gStateMachine:change('play')
+  end
+
 end
 
 function StartState:render()
