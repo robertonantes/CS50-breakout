@@ -1,5 +1,15 @@
 PlayState = Class{__includes = BaseState}
 
+PADDLE_SPEED = 180
+
+function PlayState:init()
+  self.paddle = Paddle()
+end
+
+function PlayState:update(dt)
+  self.paddle:update(dt)
+end
+
 function PlayState:render()
-  love.graphics.draw(gTextures['atlas'], gFrames['paddles'][0], 0, 0)
+  self.paddle:render()
 end
