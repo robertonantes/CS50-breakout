@@ -2,6 +2,10 @@ require 'src/Dependencies'
 
 
 function love.load()
+
+
+  math.randomseed(os.time())
+
   love.graphics.setDefaultFilter('nearest', 'nearest')
   love.window.setTitle('Breakout')
 
@@ -28,7 +32,8 @@ function love.load()
   })
 
   gFrames = {
-    ['paddles'] = GenerateQuadsPaddles(gTextures['atlas'])
+    ['paddles'] = GenerateQuadsPaddles(gTextures['atlas']),
+    ['balls']  = GenerateQuadsBalls(gTextures['atlas'])
   }
 
   gStateMachine:change('start')
@@ -41,6 +46,11 @@ end
 
 function love.update(dt)
   gStateMachine:update(dt)
+
+  if love.keyboard.wasPressed('escape') then
+    love.event.quit()
+  end
+
   love.keyboard.keysPressed = {}
 end
 
