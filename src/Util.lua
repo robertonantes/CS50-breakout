@@ -74,3 +74,30 @@ function GenerateQuadsBalls(atlas)
   return balls
   
 end
+
+function GenerateQuadsBricks(atlas)
+  
+  local x = 0
+  local y = 0
+
+  local counter = 0
+  local bricks = {}
+
+  for i = 0, 2 do
+    for j = 0, 5  do
+      bricks[counter] = love.graphics.newQuad(x + j * 32, y, 32, 16, atlas:getDimensions())
+      counter = counter + 1
+    end
+
+    y = y + 16
+
+  end
+
+  for i = 0, 2 do
+    bricks[counter] = love.graphics.newQuad(x + i * 32, y, 32, 16, atlas:getDimensions())
+    counter = counter + 1
+  end
+
+  return bricks
+
+end

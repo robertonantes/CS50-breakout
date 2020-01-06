@@ -33,7 +33,8 @@ function love.load()
 
   gFrames = {
     ['paddles'] = GenerateQuadsPaddles(gTextures['atlas']),
-    ['balls']  = GenerateQuadsBalls(gTextures['atlas'])
+    ['balls']  = GenerateQuadsBalls(gTextures['atlas']),
+    ['bricks'] = GenerateQuadsBricks(gTextures['atlas'])
   }
 
   gStateMachine:change('start')
